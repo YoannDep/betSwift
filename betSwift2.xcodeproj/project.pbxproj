@@ -302,6 +302,7 @@
 				7DB14B811E8123B9003AF23E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
