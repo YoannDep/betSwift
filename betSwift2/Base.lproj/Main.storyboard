@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login Controller-->
         <scene sceneID="hnE-yU-qO8">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="E4h-aY-SJM" customClass="ViewController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="E4h-aY-SJM" customClass="LoginController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2JJ-2z-SDQ"/>
                         <viewControllerLayoutGuide type="bottom" id="av8-Tk-Ebi"/>
@@ -50,22 +50,21 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jaj-uu-dCd" kind="show" id="cIP-Xz-Ure">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <action selector="login:" destination="E4h-aY-SJM" eventType="touchUpInside" id="oxS-1p-i1K"/>
+                                    <segue destination="jaj-uu-dCd" kind="show" id="2Ux-M6-gjq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-8X-kTX">
                                 <rect key="frame" x="26" y="289" width="323" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre e-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lp4-Q4-ONO">
                                 <rect key="frame" x="26" y="249" width="323" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="CjL-bI-dca">
                                 <rect key="frame" x="122" y="81" width="131" height="128"/>
@@ -74,6 +73,12 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="O2r-bl-jEo"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OD-B4-P6K">
+                                <rect key="frame" x="26" y="469" width="323" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -81,9 +86,12 @@
                             <constraint firstItem="DHO-K8-YAz" firstAttribute="top" secondItem="ZaY-8X-kTX" secondAttribute="bottom" constant="20" id="2O7-7d-tYY"/>
                             <constraint firstItem="CjL-bI-dca" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="106" id="6id-Wi-9s1"/>
                             <constraint firstItem="ZaY-8X-kTX" firstAttribute="top" secondItem="Lp4-Q4-ONO" secondAttribute="bottom" constant="10" id="DoM-DA-nTc"/>
+                            <constraint firstItem="0OD-B4-P6K" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="10" id="DxS-oV-OVQ"/>
                             <constraint firstItem="PGx-X8-oka" firstAttribute="top" secondItem="DHO-K8-YAz" secondAttribute="bottom" constant="20" id="FiP-aY-1Jf"/>
+                            <constraint firstItem="0OD-B4-P6K" firstAttribute="top" secondItem="PGx-X8-oka" secondAttribute="bottom" constant="50" id="GpC-PT-EvT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHO-K8-YAz" secondAttribute="trailing" constant="10" id="HNC-0j-ONi"/>
                             <constraint firstItem="DHO-K8-YAz" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="10" id="JG1-80-bOS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0OD-B4-P6K" secondAttribute="trailing" constant="10" id="NsX-JF-31F"/>
                             <constraint firstItem="av8-Tk-Ebi" firstAttribute="top" secondItem="CjL-bI-dca" secondAttribute="bottom" constant="458" id="RHr-iN-Sjl"/>
                             <constraint firstItem="CjL-bI-dca" firstAttribute="top" secondItem="2JJ-2z-SDQ" secondAttribute="bottom" constant="17" id="S00-bO-Vad"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PGx-X8-oka" secondAttribute="trailing" constant="10" id="bj8-ge-g8s"/>
@@ -100,15 +108,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cyP-8Q-nTT"/>
+                    <connections>
+                        <outlet property="emailTxt" destination="Lp4-Q4-ONO" id="mnc-l2-cLZ"/>
+                        <outlet property="errorLbl" destination="0OD-B4-P6K" id="hej-ZG-Svi"/>
+                        <outlet property="passwordTxt" destination="ZaY-8X-kTX" id="4jD-da-2BE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAr-fP-UpY" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="-173"/>
+            <point key="canvasLocation" x="154" y="-173"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="qKW-8j-ieA">
             <objects>
-                <viewController id="jaj-uu-dCd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="jaj-uu-dCd" customClass="MainViewController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ndL-Ic-x1r"/>
                         <viewControllerLayoutGuide type="bottom" id="v6s-kK-gY2"/>
@@ -163,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbo-8h-PT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-925"/>
+            <point key="canvasLocation" x="926" y="-924"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4KN-L9-XPj">
@@ -885,6 +898,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MON-jO-X0b">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sia-WI-MsJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfr-jF-sxZ">
@@ -896,9 +910,8 @@
                         <segue destination="E4h-aY-SJM" kind="relationship" relationship="rootViewController" id="Pd6-5t-4Ra"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-154" y="-207"/>
+            <point key="canvasLocation" x="-714" y="-173"/>
         </scene>
     </scenes>
     <resources>
