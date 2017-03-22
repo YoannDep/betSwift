@@ -14,7 +14,7 @@
         <!--Login Controller-->
         <scene sceneID="hnE-yU-qO8">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="E4h-aY-SJM" customClass="LoginController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" id="E4h-aY-SJM" customClass="LoginController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2JJ-2z-SDQ"/>
                         <viewControllerLayoutGuide type="bottom" id="av8-Tk-Ebi"/>
@@ -51,7 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="E4h-aY-SJM" eventType="touchUpInside" id="oxS-1p-i1K"/>
-                                    <segue destination="jaj-uu-dCd" kind="show" id="kDL-Rd-FBA"/>
+                                    <segue destination="jaj-uu-dCd" kind="show" identifier="mainSegue" id="kDL-Rd-FBA"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-8X-kTX">
@@ -252,17 +252,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="q3f-oK-G2j">
                                 <rect key="frame" x="122" y="81" width="131" height="135"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqI-9h-E16">
-                                <rect key="frame" x="26" y="415" width="323" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Valider">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="createUserBtn:" destination="11D-5Q-tPd" eventType="touchUpInside" id="AKt-ii-ZCz"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom d'utilisateur" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sLI-91-cs7">
                                 <rect key="frame" x="26" y="258" width="323" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -282,8 +271,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi9-bb-Pgb">
+                                <rect key="frame" x="26" y="404" width="323" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Valider">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="TestBtn:" destination="11D-5Q-tPd" eventType="touchUpInside" id="8Bd-tI-uXJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -295,6 +295,11 @@
                             <constraint firstItem="q3f-oK-G2j" firstAttribute="leading" secondItem="RKa-AA-EbD" secondAttribute="leadingMargin" constant="106" id="eTG-UH-hvu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTxt" destination="odW-0E-HzN" id="zck-Zm-Ilz"/>
+                        <outlet property="nameTxt" destination="sLI-91-cs7" id="XvL-xm-nKd"/>
+                        <outlet property="passwordTxt" destination="K6P-tE-BlQ" id="QsI-37-ocP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbY-uD-k3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

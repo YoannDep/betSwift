@@ -65,7 +65,7 @@ class LoginController: UIViewController {
     
 
     @IBAction func login(_ sender: UIButton) {
-        print("email " + emailTxt.text!)
+       /* print("email " + emailTxt.text!)
         print("password " + passwordTxt.text!)
         if emailTxt.text != "" && passwordTxt.text != ""  {
             let params: Parameters = [
@@ -100,7 +100,7 @@ class LoginController: UIViewController {
             }
         }else{
             errorLbl.text = "Veuillez saisir vos identifiants"
-        }
+        }*/
     }
     
     //Fucking useless
