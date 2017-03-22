@@ -8,7 +8,9 @@
 
 import UIKit
 import Alamofire
-	
+import CDAlertView
+
+
 class InscriptionViewController: UIViewController {
 
     @IBOutlet weak var passwordTxt: UITextField!
@@ -56,6 +58,8 @@ class InscriptionViewController: UIViewController {
 
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
  
+                        CDAlertView(title: "Félicitation, votre compte a été crée  ", message: "Connectter-vous  ! ", type: .notification).show()
+                    
                         let viewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
                         self.present(viewController, animated: true, completion: nil)
 
@@ -68,6 +72,7 @@ class InscriptionViewController: UIViewController {
                 }
             }
         }
+
     }
 
     /*

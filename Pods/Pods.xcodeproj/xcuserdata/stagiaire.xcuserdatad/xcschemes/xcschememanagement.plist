@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CDAlertView-CDAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>CDAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-betSwift2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6FCE582B69ACD6FDD828BAC0E7F91C49</key>
+		<key>369C26E0019831DFC30E7122499AB269</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>45AAEEB92234F78012CC66BB2C7ED644</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C4BDF1191BBE4F429F08A241D8B53E2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

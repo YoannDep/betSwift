@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "betSwift2/InscriptionViewController.swift"
-            timestampString = "511868895.245564"
+            timestampString = "511870169.167054"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "TestBtn(_:)"
             landmarkType = "7">
          </BreakpointContent>
