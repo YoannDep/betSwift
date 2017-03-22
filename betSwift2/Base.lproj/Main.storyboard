@@ -51,7 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="E4h-aY-SJM" eventType="touchUpInside" id="oxS-1p-i1K"/>
-                                    <segue destination="jaj-uu-dCd" kind="show" id="2Ux-M6-gjq"/>
+                                    <segue destination="jaj-uu-dCd" kind="show" identifier="mainSegue" id="2Ux-M6-gjq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-8X-kTX">
@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="926" y="-924"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Championnat Controller-->
         <scene sceneID="4KN-L9-XPj">
             <objects>
-                <viewController id="31p-Uk-hrE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateChampionnatController" id="31p-Uk-hrE" customClass="CreateChampionnatController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vP5-rK-VUl"/>
                         <viewControllerLayoutGuide type="bottom" id="Dja-kg-lts"/>
@@ -197,14 +197,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcs-mg-5VQ">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcs-mg-5VQ">
                                 <rect key="frame" x="28" y="243" width="318" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="createChampionnat:" destination="31p-Uk-hrE" eventType="touchUpInside" id="DO5-4y-0De"/>
                                     <segue destination="Mr3-G3-okJ" kind="show" id="jPx-IF-J1W">
                                         <nil key="action"/>
                                     </segue>
@@ -222,13 +222,30 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COf-n9-gcM">
+                                <rect key="frame" x="26" y="312" width="323" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dja-kg-lts" firstAttribute="top" secondItem="COf-n9-gcM" secondAttribute="bottom" constant="334" id="F5U-Gy-eob"/>
+                            <constraint firstItem="COf-n9-gcM" firstAttribute="leading" secondItem="qwx-O1-1sf" secondAttribute="leadingMargin" constant="10" id="GZT-Jq-13R"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="COf-n9-gcM" secondAttribute="trailing" constant="10" id="KdH-BO-Car"/>
+                            <constraint firstItem="COf-n9-gcM" firstAttribute="top" secondItem="Pcs-mg-5VQ" secondAttribute="bottom" constant="35" id="ap7-dG-XHD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnCreateChamp" destination="Pcs-mg-5VQ" id="cRv-0e-4xu"/>
+                        <outlet property="errorLabel" destination="COf-n9-gcM" id="nAg-BM-VHQ"/>
+                        <outlet property="labelNameChamp" destination="SId-VC-0J7" id="qOH-AI-H0l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAj-ww-lPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="-384"/>
+            <point key="canvasLocation" x="1605.5999999999999" y="-384.55772113943033"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Lfu-QU-8px">
@@ -898,7 +915,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MON-jO-X0b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sia-WI-MsJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfr-jF-sxZ">
@@ -910,6 +926,7 @@
                         <segue destination="E4h-aY-SJM" kind="relationship" relationship="rootViewController" id="Pd6-5t-4Ra"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-714" y="-173"/>
         </scene>
