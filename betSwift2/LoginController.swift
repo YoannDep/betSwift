@@ -23,8 +23,6 @@ class LoginController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        emailTxt.text! = "test@test.com"
-        passwordTxt.text! = "0000"
 
         /*let urlString = "http://192.168.56.101/"
         
