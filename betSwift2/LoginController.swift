@@ -67,9 +67,43 @@ class LoginController: UIViewController {
     @IBAction func login(_ sender: UIButton) {
         print("email " + emailTxt.text!)
         print("password " + passwordTxt.text!)
-        
-        
+        if emailTxt.text != "" && passwordTxt.text != ""  {
+            let params: Parameters = [
+                "grant_type": "password",
+                "client_id": "1",
+                "client_secret": "ZXdMNAizgOVs27EOqTil3lJGG9z4TIwDy2GdfGxR",
+                "username": emailTxt.text!,
+                "password": passwordTxt.text!            ]
+            
+            let headers: HTTPHeaders = ["Accept": "application/json"]
+            
+            
+            Alamofire.request(urlString + "oauth/token", method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers).validate().responseJSON { (response:DataResponse<Any>) in
+                if response.result.isSuccess {
+                    if let result:[String:Any] = response.result.value as? [String:Any] {
+                        let tokenResult = result["access_token"] as? String
+                        print("token  : " + tokenResult!)
+                        UserDefaults.standard.set(tokenResult, forKey:"token")
+                        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                         
+                         let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+                         //     self.present(viewController, animated: true, completion: nil)
+                         
+                         viewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                         viewController.navigationItem.leftItemsSupplementBackButton = true*/
+                                                
+                        
+                    }
+                }else {
+                    self.errorLbl.text = "Indentifiants invalides"
+                }
+            }
+        }else{
+            errorLbl.text = "Veuillez saisir vos identifiants"
+        }
     }
+    
+    //Fucking useless
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "mainSegue" {
             if emailTxt.text != "" && passwordTxt.text != ""  {
@@ -89,13 +123,16 @@ class LoginController: UIViewController {
                             let tokenResult = result["access_token"] as? String
                             print("token  : " + tokenResult!)
                             UserDefaults.standard.set(tokenResult, forKey:"token")
-                               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                               /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             
                            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
                         //     self.present(viewController, animated: true, completion: nil)
                             
                             viewController.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                            viewController.navigationItem.leftItemsSupplementBackButton = true
+                            viewController.navigationItem.leftItemsSupplementBackButton = true*/
+                            
+
+                            
                         }
                         
                     }else {
@@ -107,8 +144,6 @@ class LoginController: UIViewController {
             }else{
                 errorLbl.text = "Veuillez saisir vos identifiants"
             }
-
-            
         }
     }
 

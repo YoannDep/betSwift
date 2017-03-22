@@ -3,7 +3,7 @@
 //  betSwift2
 //
 //  Created by stagiaire on 21/03/2017.
-//  Copyright © 2017 stagiaire. All rights reserved.
+//  Copyright © 2017 stagiaire. All ri	ghts reserved.
 //
 
 import UIKit
