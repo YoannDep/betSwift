@@ -7,4 +7,5 @@ target 'betSwift2' do
 
   # Pods for betSwift2
     pod "Alamofire"
+    pod "CDAlertView"
 end

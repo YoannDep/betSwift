@@ -30,7 +30,7 @@
         <!--Login Controller-->
         <scene sceneID="hnE-yU-qO8">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="E4h-aY-SJM" customClass="LoginController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" id="E4h-aY-SJM" customClass="LoginController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2JJ-2z-SDQ"/>
                         <viewControllerLayoutGuide type="bottom" id="av8-Tk-Ebi"/>
@@ -86,7 +86,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="11D-5Q-tPd" kind="show" id="e2r-8c-zdk">
+                                    <segue destination="11D-5Q-tPd" kind="show" identifier="showInscription" id="e2r-8c-zdk">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -294,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="1729" y="-173"/>
         </scene>
-        <!--View Controller-->
+        <!--Inscription View Controller-->
         <scene sceneID="Lfu-QU-8px">
             <objects>
-                <viewController id="11D-5Q-tPd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InscriptionViewController" id="11D-5Q-tPd" customClass="InscriptionViewController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wX7-c7-tSM"/>
                         <viewControllerLayoutGuide type="bottom" id="LUq-Gh-MXA"/>
@@ -341,6 +341,10 @@
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="CreateUserBtn:" destination="11D-5Q-tPd" eventType="touchUpInside" id="Xvd-cB-GQU"/>
+                                    <segue destination="E4h-aY-SJM" kind="showDetail" identifier="showLogin" id="qp8-tJ-hit"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -366,6 +370,11 @@
                             <constraint firstItem="lHo-Bo-l96" firstAttribute="top" secondItem="bQb-gO-OnE" secondAttribute="bottom" constant="10" id="wfj-Sv-asH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTxt" destination="bQb-gO-OnE" id="Cda-AS-TuM"/>
+                        <outlet property="nametxt" destination="Xrw-SC-SbE" id="h6K-dX-6Kq"/>
+                        <outlet property="passwordTxt" destination="lHo-Bo-l96" id="aOG-On-AM7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbY-uD-k3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1185,4 +1194,7 @@
         <image name="logo" width="1329" height="1400"/>
         <image name="unchecked" width="626" height="626"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="qp8-tJ-hit"/>
+    </inferredMetricsTieBreakers>
 </document>

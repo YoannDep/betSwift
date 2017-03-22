@@ -26,7 +26,7 @@ class LoginController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 
-          }
+    }
     
 	
     @IBAction func login(_ sender: UIButton) {
@@ -55,6 +55,11 @@ class LoginController: UIViewController {
                             let tokenResult = result["access_token"] as? String
                             print("token  : " + tokenResult!)
                             UserDefaults.standard.set(tokenResult, forKey:"token")
+                            
+
+                            
+                             /*let viewController = segue.source
+                             UIApplication.shared.keyWindow?.rootViewController = viewController*/
                            
                             /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
                             
