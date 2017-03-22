@@ -13,53 +13,47 @@ import Alamofire
 class MainViewController: UIViewController {
 
     let urlString = "http://192.168.56.101/"
-    let championnats = [Any]()
+    var championnats = [[String:Any]]()
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
+        
         let token:String? = UserDefaults.standard.object(forKey: "token") as! String?
-        let headers: HTTPHeaders = ["Accept":"application/json", "Authorization": "Bearer "+token!]
-        
-        
-        Alamofire.request(urlString + "api/championnat", headers: headers).responseJSON { response in
-            if let result:[[String:Any]] = response.result.value as? [[String:Any]] {
-                print(response.result.value)
-                for champ:[String:Any] in result {
-                    print(champ["nom"])
+        if token != nil {
+            print("Token Main View")
+            let headers: HTTPHeaders = ["Accept":"application/json", "Authorization": "Bearer "+token!]
+            
+            
+            Alamofire.request(urlString + "api/championnat", headers: headers).responseJSON { response in
+                //print(response.result.value)
+                if let jsonDict = response.result.value as? [String:Any],
+                    let dataArray = jsonDict["data"] as? [[String:Any]] {
+                    
+                    self.championnats = dataArray
+                    for data in dataArray 	{
+                        print("data \(data["nom"]!)")
+                    }
+                    print(self.championnats.count)
+                    self.tableView.reloadData()
                 }
-            } else {
-                print("erreur")
             }
+        }
+        else{
+            print("else")
         }
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
-//            print("value = \(key) = \(value) \n")
-//        }
-
-        // Do any additional setup after loading the view.
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
@@ -72,9 +66,11 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        print("tableView \(self.championnats.count)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let championnat = self.championnats[indexPath.row]
-        cell.textLabel!.text = "Test" // championnat["nom"]
+        cell.textLabel!.text = championnat["nom"] as! String? // championnat["nom"]
        // cell.textLabel?.text = championnats[indexPath.row].value(forKeyPath: "name") as? //String // recherche pour l'attribut name en BDD
         return cell
     }

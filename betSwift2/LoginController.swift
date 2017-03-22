@@ -71,6 +71,7 @@ class LoginController: UIViewController {
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier!)
         if segue.identifier == "mainSegue" {
             if emailTxt.text != "" && passwordTxt.text != ""  {
                 let params: Parameters = [

@@ -157,6 +157,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RBx-co-fVd">
                                 <rect key="frame" x="26" y="184" width="323" height="448"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jaj-uu-dCd" id="eeN-dU-2Og"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,6 +176,9 @@
                             <constraint firstItem="rUW-wt-OpI" firstAttribute="top" secondItem="ndL-Ic-x1r" secondAttribute="bottom" constant="20" id="vft-Vq-KVD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="RBx-co-fVd" id="NCA-lk-orh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rbo-8h-PT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
