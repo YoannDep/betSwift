@@ -51,7 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="E4h-aY-SJM" eventType="touchUpInside" id="oxS-1p-i1K"/>
-                                    <segue destination="jaj-uu-dCd" kind="show" id="2Ux-M6-gjq"/>
+                                    <segue destination="jaj-uu-dCd" kind="show" identifier="mainSegue" id="2Ux-M6-gjq"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Votre mot de passe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZaY-8X-kTX">
@@ -898,7 +898,6 @@
         <!--Navigation Controller-->
         <scene sceneID="MON-jO-X0b">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Sia-WI-MsJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rfr-jF-sxZ">
@@ -910,6 +909,7 @@
                         <segue destination="E4h-aY-SJM" kind="relationship" relationship="rootViewController" id="Pd6-5t-4Ra"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8bd-6E-VzL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-714" y="-173"/>
         </scene>
