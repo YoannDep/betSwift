@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         
         let token:String? = UserDefaults.standard.object(forKey: "token") as! String?
         if token != nil {
-            print("Token Main View")
+//            print("Token Main View")
             let headers: HTTPHeaders = ["Accept":"application/json", "Authorization": "Bearer "+token!]
             
             
@@ -31,10 +31,10 @@ class MainViewController: UIViewController {
                     let dataArray = jsonDict["data"] as? [[String:Any]] {
                     
                     self.championnats = dataArray
-                    for data in dataArray 	{
-                        print("data \(data["nom"]!)")
-                    }
-                    print(self.championnats.count)
+//                    for data in dataArray 	{
+//                        print("data \(data["nom"]!)")
+//                    }
+//                    print(self.championnats.count)
                     self.tableView.reloadData()
                 }
             }
@@ -54,6 +54,19 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier!)
+        print("Passe dans Segue")
+        if segue.identifier == "showChampionnat" {
+            print("ok")
+        }
+    }
+    
+    
+    
 }
 
 
@@ -74,6 +87,13 @@ extension MainViewController: UITableViewDataSource {
        // cell.textLabel?.text = championnats[indexPath.row].value(forKeyPath: "name") as? //String // recherche pour l'attribut name en BDD
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let championnat:[String:Any] = self.championnats[indexPath.row]
+        print(championnat["id"]!)
+
+    }
+    
     
     
 }
