@@ -126,6 +126,7 @@ class LoginController: UIViewController {
         UserDefaults.standard.setValue(nil, forKey: "token")
         self.showLogin()
         self.loginSuccess = false
+        CDAlertView(title: "A bientot", message: "BetSwift, c'est avant tout la joie d'un pari bien fait", type: .success).show()
     }
     
     override func didReceiveMemoryWarning() {

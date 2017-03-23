@@ -68,7 +68,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHO-K8-YAz">
-                                <rect key="frame" x="26" y="295" width="323" height="30"/>
+                                <rect key="frame" x="26" y="321" width="323" height="30"/>
                                 <color key="backgroundColor" red="0.46221858259999998" green="0.84116172789999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,8 +80,19 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jL-x9-yNM">
+                                <rect key="frame" x="26" y="283" width="323" height="30"/>
+                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Déconnexion">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTouched:" destination="E4h-aY-SJM" eventType="touchUpInside" id="rPE-tj-OG1"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGx-X8-oka">
-                                <rect key="frame" x="26" y="345" width="323" height="30"/>
+                                <rect key="frame" x="26" y="359" width="323" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Inscription">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -92,35 +103,24 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0jL-x9-yNM">
-                                <rect key="frame" x="26" y="395" width="323" height="30"/>
-                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Déconnexion">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutTouched:" destination="E4h-aY-SJM" eventType="touchUpInside" id="rPE-tj-OG1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="DHO-K8-YAz" firstAttribute="top" secondItem="ZaY-8X-kTX" secondAttribute="bottom" constant="20" id="2O7-7d-tYY"/>
+                            <constraint firstItem="PGx-X8-oka" firstAttribute="top" secondItem="DHO-K8-YAz" secondAttribute="bottom" constant="8" id="3Rn-0V-raW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0jL-x9-yNM" secondAttribute="trailing" constant="10" id="5D9-DX-A6g"/>
                             <constraint firstItem="CjL-bI-dca" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="106" id="6id-Wi-9s1"/>
+                            <constraint firstItem="0jL-x9-yNM" firstAttribute="top" secondItem="ZaY-8X-kTX" secondAttribute="bottom" constant="8" id="9W7-7U-Ol6"/>
+                            <constraint firstItem="DHO-K8-YAz" firstAttribute="top" secondItem="0jL-x9-yNM" secondAttribute="bottom" constant="8" id="Dbr-Pt-Lhk"/>
                             <constraint firstItem="ZaY-8X-kTX" firstAttribute="top" secondItem="Lp4-Q4-ONO" secondAttribute="bottom" constant="10" id="DoM-DA-nTc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DHO-K8-YAz" secondAttribute="trailing" constant="10" id="HNC-0j-ONi"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="CjL-bI-dca" secondAttribute="trailing" constant="106" id="Hlh-ae-4Sq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DHO-K8-YAz" secondAttribute="trailing" constant="10" id="J48-mi-ojg"/>
                             <constraint firstItem="DHO-K8-YAz" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="10" id="JG1-80-bOS"/>
                             <constraint firstItem="0jL-x9-yNM" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="10" id="My4-9s-p8Y"/>
                             <constraint firstItem="CjL-bI-dca" firstAttribute="centerX" secondItem="Lp4-Q4-ONO" secondAttribute="centerX" id="PMW-J3-xw2"/>
                             <constraint firstItem="CjL-bI-dca" firstAttribute="top" secondItem="2JJ-2z-SDQ" secondAttribute="bottom" constant="17" id="S00-bO-Vad"/>
-                            <constraint firstItem="PGx-X8-oka" firstAttribute="top" secondItem="DHO-K8-YAz" secondAttribute="bottom" constant="20" id="a8g-xH-hnQ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PGx-X8-oka" secondAttribute="trailing" constant="10" id="bj8-ge-g8s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZaY-8X-kTX" secondAttribute="trailing" constant="10" id="f3c-0R-dab"/>
                             <constraint firstItem="cZI-b5-ROP" firstAttribute="top" secondItem="2JJ-2z-SDQ" secondAttribute="bottom" id="hWG-Id-lMI"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PGx-X8-oka" secondAttribute="trailing" constant="10" id="kOw-rw-mdI"/>
-                            <constraint firstItem="0jL-x9-yNM" firstAttribute="top" secondItem="PGx-X8-oka" secondAttribute="bottom" constant="20" id="kT6-6U-gbv"/>
                             <constraint firstItem="Lp4-Q4-ONO" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leadingMargin" constant="10" id="mmN-8B-p4P"/>
                             <constraint firstItem="cZI-b5-ROP" firstAttribute="leading" secondItem="QHn-cs-4jA" secondAttribute="leading" id="o9L-s0-Bbu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lp4-Q4-ONO" secondAttribute="trailing" constant="10" id="rjp-3I-AMA"/>
