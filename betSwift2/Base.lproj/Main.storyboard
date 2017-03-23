@@ -148,7 +148,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="31p-Uk-hrE" kind="show" id="cah-IK-rPN">
+                                    <segue destination="31p-Uk-hrE" kind="show" identifier="showCreateChampionnat" id="cah-IK-rPN">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -186,7 +186,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Mr3-G3-okJ" kind="showDetail" identifier="showChampionnat" id="TXc-je-Vxz"/>
+                                            <segue destination="Mr3-G3-okJ" kind="show" identifier="showChampionnat" action="showDetailViewController:sender:" id="TXc-je-Vxz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -276,7 +276,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createChampionnat:" destination="31p-Uk-hrE" eventType="touchUpInside" id="cvB-nR-Dru"/>
+                                    <action selector="createChampionnat:" destination="31p-Uk-hrE" eventType="touchUpInside" id="G9t-fB-Ix1"/>
                                     <segue destination="Mr3-G3-okJ" kind="show" id="K6t-CO-3os"/>
                                 </connections>
                             </button>
@@ -308,9 +308,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnCreateChamp" destination="qhI-t2-8fZ" id="GK1-f7-cev"/>
-                        <outlet property="errorLabel" destination="5KD-9k-rcd" id="IqZ-Ga-4Va"/>
-                        <outlet property="labelNameChamp" destination="mVB-s4-N1A" id="ISa-rc-Z7E"/>
+                        <outlet property="btnValider" destination="qhI-t2-8fZ" id="X7j-ks-r7U"/>
+                        <outlet property="errorLabel" destination="5KD-9k-rcd" id="4fW-el-swL"/>
+                        <outlet property="labelNameChamp" destination="mVB-s4-N1A" id="36E-AV-bjt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dAj-ww-lPG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -735,7 +735,7 @@
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Équipe 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rw8-VS-gOP">
-                                <rect key="frame" x="26" y="152" width="141" height="30"/>
+                                <rect key="frame" x="26" y="168" width="141" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="qmf-Qu-HWa"/>
                                 </constraints>
@@ -760,11 +760,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dyB-PY-pXI">
-                                <rect key="frame" x="26" y="196" width="323" height="408"/>
+                                <rect key="frame" x="26" y="212" width="323" height="392"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Équipe 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2hT-ZQ-V5b">
-                                <rect key="frame" x="175" y="152" width="141" height="30"/>
+                                <rect key="frame" x="175" y="168" width="141" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="svv-HN-pdM"/>
                                 </constraints>
@@ -773,7 +773,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXv-pY-yyE">
-                                <rect key="frame" x="319" y="152" width="30" height="30"/>
+                                <rect key="frame" x="319" y="168" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="J9h-ku-typ"/>
                                     <constraint firstAttribute="height" constant="30" id="e0Z-xJ-eJ5"/>
@@ -790,28 +790,38 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="createJournee:" destination="e6E-Et-Vdy" eventType="touchUpInside" id="qa9-8I-0Ug"/>
+                                    <action selector="createJournee:" destination="e6E-Et-Vdy" eventType="touchUpInside" id="a6F-pG-YeI"/>
+                                    <segue destination="vmZ-kO-U0R" kind="show" id="Te6-he-yal"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date limite (Y-M-D)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4l-ew-zsh">
+                                <rect key="frame" x="26" y="130" width="323" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ohm-J1-b6M" firstAttribute="top" secondItem="8Mr-ej-rfa" secondAttribute="top" constant="-100" id="3ad-XV-B0F"/>
-                            <constraint firstItem="Rw8-VS-gOP" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="29" id="5tr-Vc-Ml4"/>
+                            <constraint firstItem="Rw8-VS-gOP" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="45" id="5tr-Vc-Ml4"/>
                             <constraint firstItem="Rw8-VS-gOP" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="6dS-1r-NHS"/>
                             <constraint firstItem="2hT-ZQ-V5b" firstAttribute="leading" secondItem="Rw8-VS-gOP" secondAttribute="trailing" constant="8" id="7CO-mR-KjX"/>
                             <constraint firstItem="dyB-PY-pXI" firstAttribute="top" secondItem="2hT-ZQ-V5b" secondAttribute="bottom" constant="14" id="AeN-OX-aLR"/>
-                            <constraint firstItem="2hT-ZQ-V5b" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="29" id="Cyq-R8-Iwf"/>
+                            <constraint firstItem="2hT-ZQ-V5b" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="45" id="Cyq-R8-Iwf"/>
                             <constraint firstItem="ggi-Ig-Rrt" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="FZ7-EY-nQb"/>
                             <constraint firstItem="EAm-0P-mvQ" firstAttribute="top" secondItem="6db-PP-8m8" secondAttribute="bottom" constant="20" id="IHc-yL-AXw"/>
                             <constraint firstItem="fXv-pY-yyE" firstAttribute="leading" secondItem="2hT-ZQ-V5b" secondAttribute="trailing" constant="3" id="KBT-n0-dYg"/>
-                            <constraint firstItem="fXv-pY-yyE" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="29" id="Ohe-PZ-Orf"/>
+                            <constraint firstItem="fXv-pY-yyE" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="45" id="Ohe-PZ-Orf"/>
                             <constraint firstItem="ggi-Ig-Rrt" firstAttribute="top" secondItem="EAm-0P-mvQ" secondAttribute="bottom" constant="20" id="PPV-Mi-ZrR"/>
                             <constraint firstItem="HZ3-lW-Nuv" firstAttribute="top" secondItem="ECB-mE-Rca" secondAttribute="bottom" constant="10" id="Rsn-a5-TIG"/>
                             <constraint firstItem="ohm-J1-b6M" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leading" constant="-400" id="UUZ-AQ-3ig"/>
+                            <constraint firstItem="k4l-ew-zsh" firstAttribute="top" secondItem="ggi-Ig-Rrt" secondAttribute="bottom" constant="7" id="VJH-2b-wa9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EAm-0P-mvQ" secondAttribute="trailing" constant="10" id="ZEN-Hm-UAQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k4l-ew-zsh" secondAttribute="trailing" constant="10" id="aEi-av-mVt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dyB-PY-pXI" secondAttribute="trailing" constant="10" id="da2-2N-ulg"/>
                             <constraint firstItem="ECB-mE-Rca" firstAttribute="top" secondItem="dyB-PY-pXI" secondAttribute="bottom" constant="23" id="eeQ-Z4-Ros"/>
+                            <constraint firstItem="k4l-ew-zsh" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="ekp-Gu-Xd8"/>
                             <constraint firstItem="EAm-0P-mvQ" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="eoG-uc-W2U"/>
                             <constraint firstItem="dyB-PY-pXI" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="ine-Bh-l9a"/>
                             <constraint firstItem="ECB-mE-Rca" firstAttribute="leading" secondItem="8Mr-ej-rfa" secondAttribute="leadingMargin" constant="10" id="mH7-SW-jfX"/>
@@ -821,10 +831,17 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="btnCreateJournee" destination="ECB-mE-Rca" id="E6Y-cK-Ex6"/>
+                        <outlet property="labelDateLimit" destination="k4l-ew-zsh" id="El1-hj-cLc"/>
+                        <outlet property="labelEquipe1" destination="Rw8-VS-gOP" id="INe-LS-GMA"/>
+                        <outlet property="labelEquipe2" destination="2hT-ZQ-V5b" id="vw1-MU-kJl"/>
+                        <outlet property="labelNameJournee" destination="ggi-Ig-Rrt" id="HMe-fc-zuE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSD-rc-vnG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4436" y="-913.49325337331345"/>
+            <point key="canvasLocation" x="4428" y="-919"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="f9G-qr-6Tt">
@@ -1218,7 +1235,8 @@
         <image name="unchecked" width="626" height="626"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TXc-je-Vxz"/>
+        <segue reference="K6t-CO-3os"/>
         <segue reference="qp8-tJ-hit"/>
+        <segue reference="Te6-he-yal"/>
     </inferredMetricsTieBreakers>
 </document>
