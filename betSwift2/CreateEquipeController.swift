@@ -19,7 +19,7 @@ class CreateEquipeController: UIViewController {
     
     var dataTable:NSDictionary = [:]
     var tableEquipe = [Any]()
-    let urlString = "http://192.168.56.102/"
+    let urlString = "http://192.168.56.101/"
     
     override func viewDidLoad() {
         super.viewDidLoad()

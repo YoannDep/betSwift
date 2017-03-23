@@ -11,7 +11,7 @@ import Alamofire
 
 class ListJourneeController: UIViewController {
     
-    let urlString = "http://192.168.56.102/"
+    let urlString = "http://192.168.56.101/"
     
 
     @IBOutlet weak var tableView: UITableView!

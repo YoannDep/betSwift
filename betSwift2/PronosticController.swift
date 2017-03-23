@@ -14,7 +14,7 @@ class PronosticController: UIViewController {
     @IBOutlet weak var btnValider: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    let urlString = "http://192.168.56.102/"
+    let urlString = "http://192.168.56.101/"
     var pronostics = [[String:Any]]()
     var pronostic = [String:Any]()
     

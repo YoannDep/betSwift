@@ -12,7 +12,7 @@ import Alamofire
 
 class MainViewController: UIViewController {
 
-    let urlString = "http://192.168.56.102/"
+    let urlString = "http://192.168.56.101/"
     var championnats = [[String:Any]]()
     var championnat = [String:Any]()
     

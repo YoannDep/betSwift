@@ -20,7 +20,7 @@ class LoginController: UIViewController {
     
     var loginSuccess:BooleanLiteralType = false
     
-    let urlString = "http://192.168.56.102/"
+    let urlString = "http://192.168.56.101/"
 
     override func viewDidLoad() {
         super.viewDidLoad()
