@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
 
     let urlString = "http://192.168.56.101/"
     var championnats = [[String:Any]]()
+    var championnat = [String:Any]()
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -62,6 +64,11 @@ class MainViewController: UIViewController {
         print("Passe dans Segue")
         if segue.identifier == "showChampionnat" {
             print("ok")
+            
+            let dashboardChampionnatController = (segue.destination as! DashboardChampionnatController)
+            
+         //   let dashboardChampionnatController = segue.destination as! DashboardChampionnatController
+            dashboardChampionnatController.championnat = self.championnat
         }
     }
 }
@@ -87,7 +94,10 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let championnat:[String:Any] = self.championnats[indexPath.row]
         print(championnat["id"]!)
-        
+        self.championnat = self.championnats[indexPath.row]
+
+         
+        performSegue(withIdentifier: "showChampionnat", sender: self)
     }
     
     

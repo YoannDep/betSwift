@@ -486,10 +486,10 @@
             </objects>
             <point key="canvasLocation" x="937" y="597"/>
         </scene>
-        <!--View Controller-->
+        <!--Dashboard Championnat Controller-->
         <scene sceneID="cPD-vy-bch">
             <objects>
-                <viewController id="Mr3-G3-okJ" sceneMemberID="viewController">
+                <viewController id="Mr3-G3-okJ" customClass="DashboardChampionnatController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QJu-N1-cKx"/>
                         <viewControllerLayoutGuide type="bottom" id="M4o-nF-Dbl"/>

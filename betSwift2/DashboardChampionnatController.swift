@@ -9,10 +9,14 @@
 import UIKit
 
 class DashboardChampionnatController: UIViewController {
-
+    
+    var championnat = [String:Any]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("vue chargée")
+        print(self.championnat)
 
         // Do any additional setup after loading the view.
     }
