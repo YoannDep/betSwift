@@ -17,6 +17,7 @@
 		7DB14B761E8123B7003AF23E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB14B741E8123B7003AF23E /* Main.storyboard */; };
 		7DB14B781E8123B8003AF23E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB14B771E8123B8003AF23E /* Assets.xcassets */; };
 		7DB14B7B1E8123B8003AF23E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB14B791E8123B8003AF23E /* LaunchScreen.storyboard */; };
+		7DD8858D1E83BCDE00EA2C56 /* DashboardChampionnatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD8858C1E83BCDE00EA2C56 /* DashboardChampionnatController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		7DB14B771E8123B8003AF23E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DB14B7A1E8123B8003AF23E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB14B7C1E8123B9003AF23E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7DD8858C1E83BCDE00EA2C56 /* DashboardChampionnatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardChampionnatController.swift; sourceTree = "<group>"; };
 		C1E5B2A84137A39742F2E94B /* Pods_betSwift2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_betSwift2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E602F003F27E5333978D0B44 /* Pods-betSwift2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-betSwift2.release.xcconfig"; path = "Pods/Target Support Files/Pods-betSwift2/Pods-betSwift2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,6 +84,7 @@
 				7DB14B721E8123B7003AF23E /* LoginController.swift */,
 				7D8D4FE91E816C0A008B0882 /* MainViewController.swift */,
 				7D5BCD5A1E82CF4D00D7A36E /* InscriptionViewController.swift */,
+				7DD8858C1E83BCDE00EA2C56 /* DashboardChampionnatController.swift */,
 				7D94511E1E826C7C007BA03C /* CreateChampionnatController.swift */,
 				7D9451201E828457007BA03C /* CreateJourneeController.swift */,
 				7DB14B741E8123B7003AF23E /* Main.storyboard */,
@@ -229,6 +232,7 @@
 				7D94511F1E826C7C007BA03C /* CreateChampionnatController.swift in Sources */,
 				7D9451211E828457007BA03C /* CreateJourneeController.swift in Sources */,
 				7DB14B711E8123B7003AF23E /* AppDelegate.swift in Sources */,
+				7DD8858D1E83BCDE00EA2C56 /* DashboardChampionnatController.swift in Sources */,
 				7D5BCD5B1E82CF4D00D7A36E /* InscriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

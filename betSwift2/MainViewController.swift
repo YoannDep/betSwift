@@ -54,8 +54,17 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier!)
+        print("Passe dans Segue")
+        if segue.identifier == "showChampionnat" {
+            print("ok")
+        }
+    }
 }
-
 
 
 extension MainViewController: UITableViewDataSource {
@@ -71,9 +80,16 @@ extension MainViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let championnat = self.championnats[indexPath.row]
         cell.textLabel!.text = championnat["nom"] as! String? // championnat["nom"]
-       // cell.textLabel?.text = championnats[indexPath.row].value(forKeyPath: "name") as? //String // recherche pour l'attribut name en BDD
+        // cell.textLabel?.text = championnats[indexPath.row].value(forKeyPath: "name") as? //String // recherche pour l'attribut name en BDD
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let championnat:[String:Any] = self.championnats[indexPath.row]
+        print(championnat["id"]!)
+        
+    }
+    
     
     
 }
