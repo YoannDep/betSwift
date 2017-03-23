@@ -13,10 +13,9 @@ class DashboardChampionnatController: UIViewController {
     var championnat = [String:Any]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("vue chargée")
-        print(self.championnat)
 
         // Do any additional setup after loading the view.
     }
@@ -26,15 +25,21 @@ class DashboardChampionnatController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func buttonClassementTouched(_ sender: UIButton) {
+        performSegue(withIdentifier: "showClassement", sender: self)
     }
-    */
+    
+    @IBAction func buttonJourneeTouched(_ sender: UIButton) {
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showClassement" {
+            print("passage dans segue DashboardChampionnat")
+            let classementChampionnatController = (segue.destination as! ClassementChampionnatController)
+            classementChampionnatController.championnat = self.championnat
+        }
+    }
 
 }
