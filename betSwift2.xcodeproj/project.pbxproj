@@ -354,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 27220BF3EDA9F143667A78AE /* Pods-betSwift2.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z9822AX65R;
 				INFOPLIST_FILE = betSwift2/Info.plist;
@@ -369,6 +370,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E602F003F27E5333978D0B44 /* Pods-betSwift2.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z9822AX65R;
 				INFOPLIST_FILE = betSwift2/Info.plist;

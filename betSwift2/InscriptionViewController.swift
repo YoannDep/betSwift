@@ -56,17 +56,8 @@ class InscriptionViewController: UIViewController {
                         
                         let storyboard = UIStoryboard(name: "Main", bundle: nil)
                         
-                        CDAlertView(title: "Félicitation, votre compte a été crée  ", message: "Connectter-vous  ! ", type: .notification).show()
+                        CDAlertView(title: "Félicitation, votre compte a été crée  ", message: "Connecter-vous  ! ", type: .success).show()
                         
-                        /*let viewController = storyboard.instantiateViewController(withIdentifier: "LoginController")
-                        self.present(viewController, animated: true, completion: nil)
-                        */
-                        
-                        
-                   /*    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "LoginController") as! UIViewController
-                        UIApplication.shared.keyWindow?.rootViewController = viewController
-                        */
                     }
                     
                 }else {
