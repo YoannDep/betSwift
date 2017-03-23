@@ -61,13 +61,10 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(segue.identifier!)
-        print("Passe dans Segue")
         if segue.identifier == "showChampionnat" {
-            print("ok")
-            
-            let dashboardChampionnatController = (segue.destination as! DashboardChampionnatController)
-            
-         //   let dashboardChampionnatController = segue.destination as! DashboardChampionnatController
+           // let dashboardChampionnatController = (segue.destination as! DashboardChampionnatController)
+            let dashboardChampionnatController = (segue.destination as! UINavigationController).topViewController as! DashboardChampionnatController
+
             dashboardChampionnatController.championnat = self.championnat
         }
     }
@@ -82,12 +79,9 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        print("tableView \(self.championnats.count)")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let championnat = self.championnats[indexPath.row]
-        cell.textLabel!.text = championnat["nom"] as! String? // championnat["nom"]
-        // cell.textLabel?.text = championnats[indexPath.row].value(forKeyPath: "name") as? //String // recherche pour l'attribut name en BDD
+        cell.textLabel!.text = championnat["nom"] as! String?
         return cell
     }
     
@@ -95,8 +89,6 @@ extension MainViewController: UITableViewDataSource {
         let championnat:[String:Any] = self.championnats[indexPath.row]
         print(championnat["id"]!)
         self.championnat = self.championnats[indexPath.row]
-
-         
         performSegue(withIdentifier: "showChampionnat", sender: self)
     }
     

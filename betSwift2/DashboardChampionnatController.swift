@@ -12,11 +12,13 @@ class DashboardChampionnatController: UIViewController {
     
     var championnat = [String:Any]()
     
+    @IBOutlet weak var nameLbl: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("vue chargée")
         print(self.championnat)
+        nameLbl.text = self.championnat["nom"] as! String?
 
         // Do any additional setup after loading the view.
     }
