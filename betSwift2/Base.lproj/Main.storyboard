@@ -527,7 +527,7 @@
                                     <color key="titleColor" red="0.02822178415954113" green="0.18562319874763489" blue="0.31021112203598022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JdL-4b-3Ta" kind="show" id="I00-0I-wFe">
+                                    <segue destination="JdL-4b-3Ta" kind="show" identifier="showJournee" id="I00-0I-wFe">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -543,7 +543,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Rhx-lK-WzI" kind="show" id="yJJ-4d-xhk">
+                                    <segue destination="Rhx-lK-WzI" kind="show" identifier="showInvitation" id="yJJ-4d-xhk">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -615,10 +615,10 @@
             </objects>
             <point key="canvasLocation" x="3480.8000000000002" y="-173.16341829085459"/>
         </scene>
-        <!--View Controller-->
+        <!--Invitation Controller-->
         <scene sceneID="mfR-DS-xG6">
             <objects>
-                <viewController id="Rhx-lK-WzI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InvitationController" id="Rhx-lK-WzI" customClass="InvitationController" customModule="betSwift2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SR3-MP-0B3"/>
                         <viewControllerLayoutGuide type="bottom" id="x7b-uW-aZy"/>
@@ -632,25 +632,28 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email de l'ami" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-1a-McW">
-                                <rect key="frame" x="26" y="93" width="323" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nom de l'ami" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIl-1a-McW">
+                                <rect key="frame" x="26" y="137" width="323" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invitation d'amis" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw1-Gb-4wH">
-                                <rect key="frame" x="26" y="40" width="323" height="33"/>
+                                <rect key="frame" x="26" y="84" width="323" height="33"/>
                                 <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iTm-Cm-61C">
-                                <rect key="frame" x="26" y="143" width="323" height="30"/>
+                                <rect key="frame" x="26" y="187" width="323" height="30"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Valider">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="InvitePlayerBtn:" destination="Rhx-lK-WzI" eventType="touchUpInside" id="7Jz-WN-hsu"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -666,6 +669,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="iTm-Cm-61C" secondAttribute="trailing" constant="10" id="tcm-E1-faO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameTxt" destination="XIl-1a-McW" id="rts-OW-Ie3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bXw-JD-ass" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

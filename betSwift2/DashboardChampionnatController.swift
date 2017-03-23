@@ -29,6 +29,16 @@ class DashboardChampionnatController: UIViewController {
     }
     
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(segue.identifier!)
+        if segue.identifier == "showInvitation" {
+            // let dashboardChampionnatController = (segue.destination as! DashboardChampionnatController)
+            let invitationController = (segue.destination as! InvitationController)
+            
+            invitationController.championnat = self.championnat
+        }
+    }
     /*
     // MARK: - Navigation
 
