@@ -12,7 +12,7 @@ import CDAlertView
 
 class InscriptionViewController: UIViewController {
     
-    let urlString = "http://192.168.56.101/"
+    let urlString = "http://192.168.56.102/"
     
     @IBOutlet weak var nametxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
