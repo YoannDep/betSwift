@@ -65,6 +65,16 @@ class MainViewController: UIViewController {
         }
     }
     
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+//        
+//        if (segue.identifier == "yourSegueIdentifer") {
+//            // initialize new view controller and cast it as your view controller
+//            var viewController = segue.destinationViewController as AnotherViewController
+//            // your new view controller should have property that will store passed value
+//            viewController.passedValue = valueToPass
+//        }
+//    }
+    
     
     
 }
@@ -91,6 +101,10 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let championnat:[String:Any] = self.championnats[indexPath.row]
         print(championnat["id"]!)
+        
+        performSegue(withIdentifier:"showChampionnat", sender: self)
+        
+        
 
     }
     
