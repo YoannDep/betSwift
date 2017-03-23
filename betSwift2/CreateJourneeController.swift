@@ -14,8 +14,6 @@ class CreateJourneeController: UIViewController {
     @IBOutlet weak var labelNameJournee: UITextField!
     @IBOutlet weak var labelDateLimit: UITextField!
     @IBOutlet weak var btnCreateJournee: UIButton!
-    @IBOutlet weak var labelEquipe1: UITextField!
-    @IBOutlet weak var labelEquipe2: UITextField!
     
     var dataTable:NSDictionary = [:]
     let urlString = "http://192.168.56.101/"
