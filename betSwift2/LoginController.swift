@@ -15,7 +15,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var errorLbl: UILabel!
     
-    let urlString = "http://192.168.56.101/"
+    let urlString = "http://192.168.56.102/"
 
     override func viewDidLoad() {
         super.viewDidLoad()

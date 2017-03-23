@@ -1,5 +1,5 @@
 //
-//  ListJourneeController.swift
+//  PronosticController.swift
 //  betSwift2
 //
 //  Created by stagiaire on 23/03/2017.
@@ -9,32 +9,31 @@
 import UIKit
 import Alamofire
 
-class ListJourneeController: UIViewController {
+class PronosticController: UIViewController {
+
+    @IBOutlet weak var btnValider: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     let urlString = "http://192.168.56.102/"
-    
-
-    @IBOutlet weak var tableView: UITableView!
-    var journees = [[String:Any]]()
-    var journee = [String:Any]()
+    var pronostics = [[String:Any]]()
+    var pronostic = [String:Any]()
     
     override func viewWillAppear(_ animated: Bool) {
         
         let token:String? = UserDefaults.standard.object(forKey: "token") as! String?
         if token != nil {
-            print("Token ListJournee View")
             let headers: HTTPHeaders = ["Accept":"application/json", "Authorization": "Bearer "+token!]
-            let idChamp:Int = UserDefaults.standard.integer(forKey: "idChamp")
-            print("idChamp journee \(idChamp)")
-            Alamofire.request(urlString + "api/championnat/\(idChamp)/journee", headers: headers).responseJSON { response in
+            let idJournee:Int = UserDefaults.standard.integer(forKey: "idJournee")
+
+            Alamofire.request(urlString + "api/journee/\(idJournee)/match", headers: headers).responseJSON { response in
                 if let jsonDict = response.result.value as? [String:Any],
                     let dataArray = jsonDict["data"] as? [[String:Any]] {
                     
-                    self.journees = dataArray
+                    self.pronostics = dataArray
                     for data in dataArray 	{
                         print("data \(data["nom"]!)")
                     }
-                    print(self.journees.count)
+                    print(self.pronostics.count)
                     self.tableView.reloadData()
                 }
             }
@@ -42,10 +41,10 @@ class ListJourneeController: UIViewController {
         else{
             print("else")
         }
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
@@ -55,44 +54,32 @@ class ListJourneeController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Segues
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.identifier!)
-        print("Passe dans Segue")
-        if segue.identifier == "showDashboardJournee" {
-            print("ok")
-            
-            let dashboardJourneeController = (segue.destination as! DashboardJourneeController)
-            
-            dashboardJourneeController.journee = self.journee
-        }
-    }
+
 
 }
 
-extension ListJourneeController: UITableViewDataSource {
+
+extension PronosticController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return journees.count
+        return pronostics.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        print("ListJournee \(self.journees.count)")
+        print("ListJournee \(self.pronostics.count)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let journee = self.journees[indexPath.row]
-        cell.textLabel!.text = journee["nom"] as! String?
+        let pronostic = self.pronostics[indexPath.row]
+        cell.textLabel!.text = pronostic["nom"] as! String?
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let journee:[String:Any] = self.journees[indexPath.row]
-        print(journee["id"]!)
-        UserDefaults.standard.set(journee["id"]!, forKey: "idJournee")
-        self.journee = self.journees[indexPath.row]
+        let pronostic:[String:Any] = self.pronostics[indexPath.row]
+        print(pronostic["id"]!)
+        UserDefaults.standard.set(pronostic["id"]!, forKey: "idJournee")
+        self.pronostic = self.pronostics[indexPath.row]
         
         
         performSegue(withIdentifier: "showDashboardJournee", sender: self)
@@ -101,4 +88,3 @@ extension ListJourneeController: UITableViewDataSource {
     
     
 }
-
