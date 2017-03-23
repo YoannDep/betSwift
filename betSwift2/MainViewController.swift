@@ -60,14 +60,8 @@ class MainViewController: UIViewController {
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(segue.identifier!)
-        print("Passe dans Segue")
         if segue.identifier == "showChampionnat" {
-            print("ok")
-            
             let dashboardChampionnatController = (segue.destination as! DashboardChampionnatController)
-            
-         //   let dashboardChampionnatController = segue.destination as! DashboardChampionnatController
             dashboardChampionnatController.championnat = self.championnat
         }
     }
@@ -82,7 +76,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        print("Championnat count :")
         print("tableView \(self.championnats.count)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let championnat = self.championnats[indexPath.row]
@@ -92,11 +86,7 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let championnat:[String:Any] = self.championnats[indexPath.row]
-        print(championnat["id"]!)
         self.championnat = self.championnats[indexPath.row]
-
-         
         performSegue(withIdentifier: "showChampionnat", sender: self)
     }
     
