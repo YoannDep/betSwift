@@ -15,9 +15,13 @@ class MainViewController: UIViewController {
     let urlString = "http://192.168.56.101/"
     var championnats = [[String:Any]]()
     var championnat = [String:Any]()
+    var invitations = [[String:Any]]()
+    var invitation = [String:Any]()
     
     
     @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var invitationTableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -26,6 +30,23 @@ class MainViewController: UIViewController {
             print("Token Main View")
             let headers: HTTPHeaders = ["Accept":"application/json", "Authorization": "Bearer "+token!]
             
+            
+            Alamofire.request(urlString + "api/championnat/invit", headers: headers).responseJSON { response in
+                print("Inivtation \(response.result.value)")
+                if let jsonDict = response.result.value as? [String:Any],
+                    let dataArray = jsonDict["data"] as? [[String:Any]] {
+                    
+                    self.invitations = dataArray
+                    for data in dataArray 	{
+                        print("data \(data["nom"]!)")
+                    }
+                    print(self.invitations.count)
+                    self.invitationTableView.reloadData()
+                }
+            }
+            
+            
+
             
             Alamofire.request(urlString + "api/championnat", headers: headers).responseJSON { response in
                 //print(response.result.value)
@@ -44,12 +65,17 @@ class MainViewController: UIViewController {
         else{
             print("else")
         }
+        
+        self.invitationTableView.reloadData()
+        self.tableView.reloadData()
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        invitationTableView.register(UITableViewCell.self, forCellReuseIdentifier: "CellInvit")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,23 +101,47 @@ extension MainViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return championnats.count
+        var count:Int?
+        
+        if tableView == self.tableView {
+            count = championnats.count
+        }
+        
+        if tableView == self.invitationTableView {
+            count =  invitations.count
+        }
+        
+        return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let championnat = self.championnats[indexPath.row]
-        cell.textLabel!.text = championnat["nom"] as! String?
-        return cell
+        var cell:UITableViewCell?
+        
+        if tableView == self.invitationTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "CellInvit", for: indexPath)
+            let invitation = self.invitations[indexPath.row]
+            cell.textLabel!.text = invitation["nom"] as! String?
+            return cell
+
+            
+        } else  {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            let championnat = self.championnats[indexPath.row]
+            cell.textLabel!.text = championnat["nom"] as! String?
+            cell
+            return cell
+
+            
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let championnat:[String:Any] = self.championnats[indexPath.row]
-        print(championnat["id"]!)
-        self.championnat = self.championnats[indexPath.row]
-        performSegue(withIdentifier: "showChampionnat", sender: self)
+        if tableView == self.tableView {
+
+            let championnat:[String:Any] = self.championnats[indexPath.row]
+            print(championnat["id"]!)
+            self.championnat = self.championnats[indexPath.row]
+            performSegue(withIdentifier: "showChampionnat", sender: self)
+        }
     }
-    
-    
-    
 }
