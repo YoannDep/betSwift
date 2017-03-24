@@ -44,3 +44,21 @@ Lancer une procédure d'installation classique Laravel (aller dans le dossier du
  - php artisan migrate --seed
  - php artisan passport:install
  - php artisan serve
+
+
+
+# Présentation de l'application
+
+Application de pronostics sportifs. 
+Un utilisateur va créer un championnat, assigner des journées a ce championnat qui comporteront plusieurs matchs.
+Le championnat est privé, l'utilisateur peut ensuite inviter des amis à rejoindre son championnat. A la fin de la journée, une personne peut remplir les résultats de la journée, et le classement s'effectura automatiquement.
+
+Reste a faire sur l'application mobile: 
+ - indiquer les scores finaux des matchs
+ - pouvoir parier sur un match
+ - acceptation d'une invitation
+Temps restant a estimé pour finaliser l'application : inférieur à 1 jour (dû a de nombreuses coupures web)
+
+Données de Test:
+- login : test@test.com 
+- mot de passe : 0000
